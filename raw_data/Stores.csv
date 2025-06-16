@@ -1,0 +1,3 @@
+StoreID,StoreName,Address,City,State,ZipCode,Email,Phone,Updated_at
+1,Main Street Store,100 Main St,Metropolis,NY,10001,main@store.com,555-1111,2024-06-01T08:00:00Z
+2,West Side Market,200 West Ave,Gotham,IL,60601,west@store.com,555-2222,2024-06-02T09:00:00Z

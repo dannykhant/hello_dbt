@@ -1,0 +1,4 @@
+ProductID,Name,Category,RetailPrice,SupplierPrice,SupplierID,Updated_at
+101,Apples,Fruit,1.99,1.20,1,2024-06-01T09:00:00Z
+102,Banana,Fruit,0.99,0.50,1,2024-06-01T09:30:00Z
+103,Soap,Cleaning,2.49,1.80,2,2024-06-01T10:00:00Z

@@ -1,0 +1,34 @@
+models:
+    - name: customer_stg
+      description: Customer data
+      columns:
+        - name: fullname
+          description: Fullname is the name of customers
+          data_tests:
+            - str_not_empty
+
+    - name: order_stg
+      description: Order data
+      columns:
+        - name: leadstatus
+          description: "{{ doc('LeadStatus') }}"
+          data_tests:
+            - str_not_empty
+            - accepted_values:
+                values: ['Win', 'Lost', 'In Progress']
+
+        - name: orderid
+          description: Order id must be unique and not null
+          tests:
+            - unique
+            - not_null
+
+    - name: order_item_stg
+      description: Order item data
+      columns:
+        - name: orderid
+          description: Order ID is related to Order table
+          data_tests:
+           - relationships:
+                to: ref('order_stg')
+                field: orderid

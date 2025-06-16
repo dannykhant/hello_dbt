@@ -1,0 +1,21 @@
+sources:
+    - name: landing
+      description: Base tables to source
+      project: newagent-90be1
+      schema: l1_landing
+      tables:
+        - name: cust
+          identifier: Customers
+          columns:
+            - name: address
+              tests:
+                - not_null
+                - str_not_empty
+        - name: order
+          identifier: Orders
+          freshness:
+            warn_after: {count: 360, period: day}
+            error_after: {count: 800, period: day}
+          loaded_at_field: Updated_at
+        - name: orderit
+          identifier: OrderItems
