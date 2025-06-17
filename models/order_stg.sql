@@ -1,3 +1,10 @@
+{{
+  config(
+    materialized = 'incremental',
+    unique_key = 'orderid'
+    )
+}}
+
 select
     orderid,
     orderdate,
@@ -12,5 +19,10 @@ select
         then 'Lost'
         else 'In Progress'
     end as leadstatus,
-    updated_at
+    updated_at,
+    current_timestamp dbt_updated_at
 from {{ source('landing', 'order') }}
+
+{% if is_incremental() %}
+    where updated_at > (select max(dbt_updated_at) from {{ this }})
+{% endif %}

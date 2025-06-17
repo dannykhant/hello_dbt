@@ -7,7 +7,7 @@ select
     oi.productid,
     o.updated_at,
     sum(oi.total_price) revenue,
-    count(oi.orderid) order_cnt
+    count(oi.orderid) order_cnt,
 from {{ ref('order_item_stg') }} oi
 join {{ ref('order_stg') }} o on oi.orderid = o.orderid
 join {{ ref('customer_stg') }} c on o.customerid = c.customerid

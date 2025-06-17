@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized = 'ephemeral'
+    )
+}}
+
 select
     customerid,
     concat(firstname, ' ', lastname) fullname,
